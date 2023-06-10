@@ -1,0 +1,142 @@
+﻿<UserControl x:Class="WpfPlayground.UserControls.MessageBoxDemoArea"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:vm="clr-namespace:WpfPlayground.ViewModels"
+             xmlns:local="clr-namespace:WpfPlayground.UserControls"
+             d:DataContext="{d:DesignInstance Type=vm:MessageBoxDemoAreaViewModel, IsDesignTimeCreatable=True}"
+             mc:Ignorable="d">
+    <UserControl.Resources>
+        <DataTemplate x:Key="ImageComboBoxItemTemplate">
+            <Grid Margin="5">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"></ColumnDefinition>
+                    <ColumnDefinition Width="Auto"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <Image
+                    Width="20" Stretch="Fill"  Height="20"
+                    Source="{Binding ImageSource}"/>
+                <TextBlock 
+                    Grid.Column="1"
+                    Margin="5,0,0,0"
+                    TextAlignment="Center"
+                    Text="{Binding Description}"/>
+            </Grid>
+        </DataTemplate>
+        <Style x:Key="ButtonRadioButtonStyle" TargetType="RadioButton">
+            <Setter Property="Margin" Value="5"/>
+            <Setter Property="GroupName" Value="MessageBoxButtonGroup"/>
+        </Style>
+        <Style x:Key="TextPromptsStyle" TargetType="TextBlock">
+            <Setter Property="Margin" Value="10,12,5,0"/>
+        </Style>
+        <vm:ButtonCheckBoxConverter x:Key="buttonCheckBoxConverter"/>
+    </UserControl.Resources>
+    <Grid d:Background="White">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <TextBlock
+                Text="{StaticResource MessageBoxAreaPrompt}"
+                Margin="10"/>
+        <StackPanel Orientation="Horizontal" Grid.Row="1">
+            <TextBlock 
+                Text="{StaticResource ChooseImagePrompt}"
+                Style="{StaticResource TextPromptsStyle}"/>
+            <!-- This will be a combox box with the text and icon -->
+            <ComboBox 
+                VerticalAlignment="Top"
+                Width="140"
+                Margin="0,10,15,0" d:Width="120"
+                SelectedItem="{Binding SelectedItem}"
+                ItemsSource="{Binding ImageInfos}"
+                ItemTemplate="{StaticResource ImageComboBoxItemTemplate}">
+            </ComboBox>
+        </StackPanel>
+        <StackPanel Orientation="Horizontal" Grid.Row="2" Margin="0,10,10,0">
+            <TextBlock 
+                Text="{StaticResource ChooseButtonsPrompt}"
+                Style="{StaticResource TextPromptsStyle}"/>
+            <Border BorderBrush="Black" BorderThickness="0.5" Margin="0,10">
+                <StackPanel Orientation="Vertical">
+                    <RadioButton
+                        Style="{StaticResource ButtonRadioButtonStyle}"
+                        IsChecked="{Binding OkButtonChecked, Mode=OneWay}"
+                        Command="{Binding RadioButtonCheckedCommand}"
+                        CommandParameter="{x:Static MessageBoxButton.OK}"
+                        Content="{StaticResource OKButtonLabel}"/>
+                    <RadioButton
+                        Style="{StaticResource ButtonRadioButtonStyle}"
+                        IsChecked="{Binding OkCancelButtonChecked, Mode=OneWay}"
+                        Command="{Binding RadioButtonCheckedCommand}"
+                        CommandParameter="{x:Static MessageBoxButton.OKCancel}"
+                        Content="{StaticResource OKCancelButtonLabel}"/>
+                    <RadioButton
+                        Style="{StaticResource ButtonRadioButtonStyle}"
+                        IsChecked="{Binding YesNoButtonChecked, Mode=OneWay}"
+                        Command="{Binding RadioButtonCheckedCommand}"
+                        CommandParameter="{x:Static MessageBoxButton.YesNo}"
+                        Content="{StaticResource YesNoButtonLabel}"/>
+                    <RadioButton
+                        Style="{StaticResource ButtonRadioButtonStyle}"
+                        IsChecked="{Binding YesNoCancelButtonChecked, Mode=OneWay}"
+                        Command="{Binding RadioButtonCheckedCommand}"
+                        CommandParameter="{x:Static MessageBoxButton.YesNoCancel}"
+                        Content="{StaticResource YesNoCancelButtonLabel}"/>
+                </StackPanel>
+            </Border>
+        </StackPanel>
+        <Grid Grid.Column="1" Grid.Row="1" Grid.RowSpan="2" Background="Green" 
+              VerticalAlignment="Stretch" Margin="0,0,10,10">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <TextBlock Grid.Column="0" Grid.Row="0"
+                Text="{StaticResource TitlePrompt}"
+                VerticalAlignment="Top"
+                       HorizontalAlignment="Stretch"
+                       TextAlignment="Right"
+                Style="{StaticResource TextPromptsStyle}"/>
+            <TextBox Grid.Column="1"
+                     Margin="0,10,0,10"
+                     Text="{Binding Title,UpdateSourceTrigger=PropertyChanged}"
+                     Background="Beige"/>
+            <TextBlock Grid.Column="0" Grid.Row="1"
+                Text="{StaticResource CaptionPrompt}"
+                VerticalAlignment="Top"
+                       TextAlignment="Right"
+                Margin="10,0,5,0"
+                Style="{StaticResource TextPromptsStyle}"/>
+            <TextBox Grid.Column="1"
+                     Grid.Row="1"
+                     Text="{Binding Caption,UpdateSourceTrigger=PropertyChanged}"
+                     Background="Beige"
+                     VerticalAlignment="Stretch"
+                     TextWrapping="Wrap"/>
+        </Grid>
+        <TextBox Grid.Row="3" VerticalAlignment="Center"
+                 Text="{Binding Status, Mode=OneWay}"
+                 d:Text="Result: Ok Button Clicked"></TextBox>
+        <Button
+            Content="{StaticResource ShowButtonContent}"
+            Command="{Binding ShowCommand}"
+            Margin="10"
+            Grid.Row="3" Grid.Column="1"
+            VerticalAlignment="Center" 
+            HorizontalAlignment="Right"
+            MinWidth="85"/>
+    </Grid>
+</UserControl>

@@ -1,15 +1,9 @@
 ﻿
+using ListBoxStylingSample.Interfaces;
 using System;
 using System.Collections.ObjectModel;
 
 namespace ListBoxStylingSample.ViewModels;
-
-public interface ITransactionListViewModel
-{
-    ObservableCollection<ITransaction> Transactions { get; }
-
-    String[] Categories { get; }
-}
 
 public class TransactionListViewModel : ITransactionListViewModel
 {

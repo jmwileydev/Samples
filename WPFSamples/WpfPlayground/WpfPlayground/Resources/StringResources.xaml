@@ -1,0 +1,99 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:system="clr-namespace:System;assembly=mscorlib"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xml:space="preserve">
+
+    <!-- App title -->
+    <system:String x:Key="ApplicationTitle">WPF Playground App</system:String>
+    
+    <!-- Section Headers -->
+    <system:String x:Key="ComboBoxWithAddSection">ComboBoxWithAdd Demonstration</system:String>
+    <system:String x:Key="MessageBoxExSection">JMWToolkit.MVVM MessageBoxEx Demonstration</system:String>
+    <system:String x:Key="AnimationSection">Animation Playground</system:String>
+    
+    <!-- Strings for buttons -->
+    <system:String x:Key="OkButtonText">OK</system:String>
+    <system:String x:Key="CancelButtonText">Cancel</system:String>
+    <system:String x:Key="YesButtonText">Yes</system:String>
+    <system:String x:Key="NoButtonText">No</system:String>
+    
+    <!-- For the button at the bottom of the combox box choices -->
+    <system:String x:Key="AddNewItem">Add a new item</system:String>
+    
+    <!-- Strings for AddItemDialog -->
+    <system:String x:Key="AddNewItemCaption">Add a new item</system:String>
+    <system:String x:Key="AddNewItemPrompt">Enter Item:</system:String>
+    
+    <!-- String for description of ComboBoxWithAdd -->
+    <!--<system:String x:Key="ComboBoxWithAddDescription">
+The ComboBoxWithAdd allows the addition of a button at the bottom of the ComboBox dropdown that the user can
+use to add a new item into the list. This ComboBox will actually update the underlying collection.
+    </system:String>-->
+    
+    <system:String x:Key="ComboBoxWithAddDescription">
+&lt;TextBlock&gt;
+    The ComboBoxWithAdd allows the addition of a button at the bottom of the ComboBox dropdown that the user can
+    use to add a new item into the list. This ComboBox will actually update the underlying collection.
+Here is some more text.
+        &lt;LineBreak/&gt;
+    Here is some text, it should be a new paragraph.
+&lt;/TextBlock&gt;
+    </system:String>
+    
+    <!-- Strings for MessageBoxImage descriptions -->
+    <system:String x:Key="MessageBoxImage_Information">Information</system:String>
+    <system:String x:Key="MessageBoxImage_Warning">Warning</system:String>
+    <system:String x:Key="MessageBoxImage_Error">Error</system:String>
+    <system:String x:Key="MessageBoxImage_Question">Question</system:String>
+    
+    <!-- Message Box Demo Area prompts -->
+    <system:String x:Key="ChooseImagePrompt">Choose Image:</system:String>
+    <system:String x:Key="ChooseButtonsPrompt">Choose Button:</system:String>
+    <system:String x:Key="MessageBoxAreaPrompt">Choose values for the MessageBox and then hit Show</system:String>
+    <system:String x:Key="MessageBoxButtonCheckBoxFormat">{0} Button</system:String>
+    <system:String x:Key="CaptionPrompt">Caption:</system:String>
+    <system:String x:Key="ShowButtonContent">Show</system:String>
+    <system:String x:Key="TitlePrompt">Title:</system:String>
+    
+    <system:String x:Key="OKButtonLabel">OK Button</system:String>
+    <system:String x:Key="OKCancelButtonLabel">OK, Cancel Button</system:String>
+    <system:String x:Key="YesNoButtonLabel">Yes, No Button</system:String>
+    <system:String x:Key="YesNoCancelButtonLabel">Yes, No, Cancel Button</system:String>
+    
+    <!-- Status messages for Show Area -->
+    <system:String x:Key="InitialStatusPrompt">Please fill in the Title and Caption and then hit "Show".</system:String>
+    <system:String x:Key="OkButtonResult">The OK Button was clicked</system:String>
+    <system:String x:Key="CancelButtonResult">The Cancel Button was clicked</system:String>
+    <system:String x:Key="YesButtonResult">The Yes Button was clicked</system:String>
+    <system:String x:Key="NoButtonResult">The No Button was clicked</system:String>
+    
+    <!-- Default title and caption for MessageBoxEx -->
+    <system:String x:Key="DefaultTitle">This is the Default Title</system:String>
+    <system:String x:Key="DefaultCaption">
+    &lt;par indent=4&gt;
+        The MessageBoxEx is used to display a formatted string as a caption. The user
+        can enter a string into the resources file with paragraphs inside a XML element
+        par. For now par as a single named value, indent which will be the indent level
+           of the first.
+    &lt;/par indent=4&gt;
+    &lt;par indent=4&gt;
+        Any whitespace at the beginning or end of a line will be removed. This makes it
+            easier to put the string into a StringResources.xaml file to be loaded at
+            runtime.
+    &lt;break&gt;
+    &lt;/par indent=4&gt;
+    &lt;par indent=4&gt;
+            Hopefully one day I will get some time to add some more xml elements for better
+            formatting. For instance bold, italice, ...
+        &lt;par indent=4&gt;
+    </system:String>
+    
+    <system:String x:Key="RichText">
+    &lt;TextBlock&gt;Here is some text want to format properly &lt;LineBreak/&gt;&lt;Bold&gt;Here is 
+some bold text.&lt;/Bold&gt;&lt;LineBreak/&gt;
+    Here is a new line that I want indented to match the first one. This text will be
+longer and will hopefully wrap properly.&lt;LineBreak/&gt;
+And finally to a third line.
+    &lt;/TextBlock&gt;
+    </system:String>
+</ResourceDictionary>

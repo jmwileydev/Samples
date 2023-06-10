@@ -1,16 +1,7 @@
-﻿using System;
+﻿using ListBoxStylingSample.Interfaces;
+using System;
 
 namespace ListBoxStylingSample.ViewModels;
-
-public interface ITransaction
-{
-    DateTime Date { get; }
-    String Description { get; }
-
-    double Amount { get; }
-
-    String Category { get; }
-}
 
 public class TransactionViewModel : ViewModelBase, ITransaction
 {

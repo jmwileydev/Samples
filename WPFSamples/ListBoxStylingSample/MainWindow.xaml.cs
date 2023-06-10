@@ -1,4 +1,4 @@
-﻿using ListBoxStylingSample.ViewModels;
+﻿using ListBoxStylingSample.Interfaces;
 using System.Windows;
 
 namespace ListBoxStylingSample;
