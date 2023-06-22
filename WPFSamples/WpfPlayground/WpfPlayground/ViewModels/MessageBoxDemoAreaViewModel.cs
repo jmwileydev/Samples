@@ -100,18 +100,18 @@ public class MessageBoxDemoAreaViewModel : ViewModelBase, IMessageBoxDemoAreaVie
             "MessageBoxButton");
     }
 
-    public ObservableCollection<ImageInfo> ImageInfos { get; private set; } = new()
+    public ObservableCollection<IImageInfoViewModel> ImageInfos { get; private set; } = new()
     {
-        new ImageInfo(
+        new ImageInfoViewModel(
             StringResourceHelpers.LoadStringResource("MessageBoxImage_Information"),
             MessageBoxImage.Information),
-        new ImageInfo(
+        new ImageInfoViewModel(
             StringResourceHelpers.LoadStringResource("MessageBoxImage_Warning"),
             MessageBoxImage.Warning),
-        new ImageInfo(
+        new ImageInfoViewModel(
             StringResourceHelpers.LoadStringResource("MessageBoxImage_Error"),
             MessageBoxImage.Error),
-        new ImageInfo(
+        new ImageInfoViewModel(
             StringResourceHelpers.LoadStringResource("MessageBoxImage_Question"),
             MessageBoxImage.Question)
     };
@@ -142,7 +142,7 @@ public class MessageBoxDemoAreaViewModel : ViewModelBase, IMessageBoxDemoAreaVie
         }
     }
 
-    public ImageInfo SelectedItem { get; set; }
+    public IImageInfoViewModel SelectedItem { get; set; }
 
     public bool OkButtonChecked
     {

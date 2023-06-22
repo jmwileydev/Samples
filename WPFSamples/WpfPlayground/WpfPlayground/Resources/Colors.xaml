@@ -1,0 +1,139 @@
+<!-- Generated XAML colors and brushes from color.kt file. -->
+<ResourceDictionary xmlns = "http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x = "http://schemas.microsoft.com/winfx/2006/xaml" >
+
+<!-- Colors -->
+<Color x:Key="light_primary">#FF4D54B7</Color>
+<Color x:Key="light_onPrimary">#FFFFFFFF</Color>
+<Color x:Key="light_primaryContainer">#FFE0E0FF</Color>
+<Color x:Key="light_onPrimaryContainer">#FF00006E</Color>
+<Color x:Key="light_secondary">#FF5C5D72</Color>
+<Color x:Key="light_onSecondary">#FFFFFFFF</Color>
+<Color x:Key="light_secondaryContainer">#FFE1E0F9</Color>
+<Color x:Key="light_onSecondaryContainer">#FF191A2C</Color>
+<Color x:Key="light_tertiary">#FF78536B</Color>
+<Color x:Key="light_onTertiary">#FFFFFFFF</Color>
+<Color x:Key="light_tertiaryContainer">#FFFFD8EE</Color>
+<Color x:Key="light_onTertiaryContainer">#FF2E1126</Color>
+<Color x:Key="light_error">#FFBA1A1A</Color>
+<Color x:Key="light_errorContainer">#FFFFDAD6</Color>
+<Color x:Key="light_onError">#FFFFFFFF</Color>
+<Color x:Key="light_onErrorContainer">#FF410002</Color>
+<Color x:Key="light_background">#FFFFFBFF</Color>
+<Color x:Key="light_onBackground">#FF1B1B1F</Color>
+<Color x:Key="light_surface">#FFFFFBFF</Color>
+<Color x:Key="light_onSurface">#FF1B1B1F</Color>
+<Color x:Key="light_surfaceVariant">#FFE4E1EC</Color>
+<Color x:Key="light_onSurfaceVariant">#FF46464F</Color>
+<Color x:Key="light_outline">#FF777680</Color>
+<Color x:Key="light_inverseOnSurface">#FFF3EFF4</Color>
+<Color x:Key="light_inverseSurface">#FF303034</Color>
+<Color x:Key="light_inversePrimary">#FFBFC2FF</Color>
+<Color x:Key="light_shadow">#FF000000</Color>
+<Color x:Key="light_surfaceTint">#FF4D54B7</Color>
+<Color x:Key="light_outlineVariant">#FFC7C5D0</Color>
+<Color x:Key="light_scrim">#FF000000</Color>
+<Color x:Key="dark_primary">#FFBFC2FF</Color>
+<Color x:Key="dark_onPrimary">#FF1A2087</Color>
+<Color x:Key="dark_primaryContainer">#FF343A9E</Color>
+<Color x:Key="dark_onPrimaryContainer">#FFE0E0FF</Color>
+<Color x:Key="dark_secondary">#FFC5C4DD</Color>
+<Color x:Key="dark_onSecondary">#FF2E2F42</Color>
+<Color x:Key="dark_secondaryContainer">#FF444559</Color>
+<Color x:Key="dark_onSecondaryContainer">#FFE1E0F9</Color>
+<Color x:Key="dark_tertiary">#FFE8B9D5</Color>
+<Color x:Key="dark_onTertiary">#FF46263B</Color>
+<Color x:Key="dark_tertiaryContainer">#FF5E3C52</Color>
+<Color x:Key="dark_onTertiaryContainer">#FFFFD8EE</Color>
+<Color x:Key="dark_error">#FFFFB4AB</Color>
+<Color x:Key="dark_errorContainer">#FF93000A</Color>
+<Color x:Key="dark_onError">#FF690005</Color>
+<Color x:Key="dark_onErrorContainer">#FFFFDAD6</Color>
+<Color x:Key="dark_background">#FF1B1B1F</Color>
+<Color x:Key="dark_onBackground">#FFE5E1E6</Color>
+<Color x:Key="dark_surface">#FF1B1B1F</Color>
+<Color x:Key="dark_onSurface">#FFE5E1E6</Color>
+<Color x:Key="dark_surfaceVariant">#FF46464F</Color>
+<Color x:Key="dark_onSurfaceVariant">#FFC7C5D0</Color>
+<Color x:Key="dark_outline">#FF918F9A</Color>
+<Color x:Key="dark_inverseOnSurface">#FF1B1B1F</Color>
+<Color x:Key="dark_inverseSurface">#FFE5E1E6</Color>
+<Color x:Key="dark_inversePrimary">#FF4D54B7</Color>
+<Color x:Key="dark_shadow">#FF000000</Color>
+<Color x:Key="dark_surfaceTint">#FFBFC2FF</Color>
+<Color x:Key="dark_outlineVariant">#FF46464F</Color>
+<Color x:Key="dark_scrim">#FF000000</Color>
+
+<Color x:Key="light_primaryContainerShade1">#D8E0E0FF</Color>
+<Color x:Key="light_primaryContainerShade2">#B1E0E0FF</Color>
+<Color x:Key="light_primaryContainerShade3">#8AE0E0FF</Color>
+<Color x:Key="light_onPrimaryShade1">#D8FFFFFF</Color>
+
+    <!-- Brushes -->
+<SolidColorBrush x:Key="light_primaryBrush" Color="{StaticResource light_primary}"></SolidColorBrush>
+<SolidColorBrush x:Key="light_onPrimaryBrush" Color="{StaticResource light_onPrimary}"></SolidColorBrush>
+<SolidColorBrush x:Key="light_primaryContainerBrush" Color="{StaticResource light_primaryContainer}"></SolidColorBrush>
+<SolidColorBrush x:Key="light_onPrimaryContainerBrush" Color="{StaticResource light_onPrimaryContainer}"></SolidColorBrush>
+<SolidColorBrush x:Key="light_secondaryBrush" Color="{StaticResource light_secondary}"></SolidColorBrush>
+<SolidColorBrush x:Key="light_onSecondaryBrush" Color="{StaticResource light_onSecondary}"></SolidColorBrush>
+<SolidColorBrush x:Key="light_secondaryContainerBrush" Color="{StaticResource light_secondaryContainer}"></SolidColorBrush>
+<SolidColorBrush x:Key="light_onSecondaryContainerBrush" Color="{StaticResource light_onSecondaryContainer}"></SolidColorBrush>
+<SolidColorBrush x:Key="light_tertiaryBrush" Color="{StaticResource light_tertiary}"></SolidColorBrush>
+<SolidColorBrush x:Key="light_onTertiaryBrush" Color="{StaticResource light_onTertiary}"></SolidColorBrush>
+<SolidColorBrush x:Key="light_tertiaryContainerBrush" Color="{StaticResource light_tertiaryContainer}"></SolidColorBrush>
+<SolidColorBrush x:Key="light_onTertiaryContainerBrush" Color="{StaticResource light_onTertiaryContainer}"></SolidColorBrush>
+<SolidColorBrush x:Key="light_errorBrush" Color="{StaticResource light_error}"></SolidColorBrush>
+<SolidColorBrush x:Key="light_errorContainerBrush" Color="{StaticResource light_errorContainer}"></SolidColorBrush>
+<SolidColorBrush x:Key="light_onErrorBrush" Color="{StaticResource light_onError}"></SolidColorBrush>
+<SolidColorBrush x:Key="light_onErrorContainerBrush" Color="{StaticResource light_onErrorContainer}"></SolidColorBrush>
+<SolidColorBrush x:Key="light_backgroundBrush" Color="{StaticResource light_background}"></SolidColorBrush>
+<SolidColorBrush x:Key="light_onBackgroundBrush" Color="{StaticResource light_onBackground}"></SolidColorBrush>
+<SolidColorBrush x:Key="light_surfaceBrush" Color="{StaticResource light_surface}"></SolidColorBrush>
+<SolidColorBrush x:Key="light_onSurfaceBrush" Color="{StaticResource light_onSurface}"></SolidColorBrush>
+<SolidColorBrush x:Key="light_surfaceVariantBrush" Color="{StaticResource light_surfaceVariant}"></SolidColorBrush>
+<SolidColorBrush x:Key="light_onSurfaceVariantBrush" Color="{StaticResource light_onSurfaceVariant}"></SolidColorBrush>
+<SolidColorBrush x:Key="light_outlineBrush" Color="{StaticResource light_outline}"></SolidColorBrush>
+<SolidColorBrush x:Key="light_inverseOnSurfaceBrush" Color="{StaticResource light_inverseOnSurface}"></SolidColorBrush>
+<SolidColorBrush x:Key="light_inverseSurfaceBrush" Color="{StaticResource light_inverseSurface}"></SolidColorBrush>
+<SolidColorBrush x:Key="light_inversePrimaryBrush" Color="{StaticResource light_inversePrimary}"></SolidColorBrush>
+<SolidColorBrush x:Key="light_shadowBrush" Color="{StaticResource light_shadow}"></SolidColorBrush>
+<SolidColorBrush x:Key="light_surfaceTintBrush" Color="{StaticResource light_surfaceTint}"></SolidColorBrush>
+<SolidColorBrush x:Key="light_outlineVariantBrush" Color="{StaticResource light_outlineVariant}"></SolidColorBrush>
+<SolidColorBrush x:Key="light_scrimBrush" Color="{StaticResource light_scrim}"></SolidColorBrush>
+<SolidColorBrush x:Key="dark_primaryBrush" Color="{StaticResource dark_primary}"></SolidColorBrush>
+<SolidColorBrush x:Key="dark_onPrimaryBrush" Color="{StaticResource dark_onPrimary}"></SolidColorBrush>
+<SolidColorBrush x:Key="dark_primaryContainerBrush" Color="{StaticResource dark_primaryContainer}"></SolidColorBrush>
+<SolidColorBrush x:Key="dark_onPrimaryContainerBrush" Color="{StaticResource dark_onPrimaryContainer}"></SolidColorBrush>
+<SolidColorBrush x:Key="dark_secondaryBrush" Color="{StaticResource dark_secondary}"></SolidColorBrush>
+<SolidColorBrush x:Key="dark_onSecondaryBrush" Color="{StaticResource dark_onSecondary}"></SolidColorBrush>
+<SolidColorBrush x:Key="dark_secondaryContainerBrush" Color="{StaticResource dark_secondaryContainer}"></SolidColorBrush>
+<SolidColorBrush x:Key="dark_onSecondaryContainerBrush" Color="{StaticResource dark_onSecondaryContainer}"></SolidColorBrush>
+<SolidColorBrush x:Key="dark_tertiaryBrush" Color="{StaticResource dark_tertiary}"></SolidColorBrush>
+<SolidColorBrush x:Key="dark_onTertiaryBrush" Color="{StaticResource dark_onTertiary}"></SolidColorBrush>
+<SolidColorBrush x:Key="dark_tertiaryContainerBrush" Color="{StaticResource dark_tertiaryContainer}"></SolidColorBrush>
+<SolidColorBrush x:Key="dark_onTertiaryContainerBrush" Color="{StaticResource dark_onTertiaryContainer}"></SolidColorBrush>
+<SolidColorBrush x:Key="dark_errorBrush" Color="{StaticResource dark_error}"></SolidColorBrush>
+<SolidColorBrush x:Key="dark_errorContainerBrush" Color="{StaticResource dark_errorContainer}"></SolidColorBrush>
+<SolidColorBrush x:Key="dark_onErrorBrush" Color="{StaticResource dark_onError}"></SolidColorBrush>
+<SolidColorBrush x:Key="dark_onErrorContainerBrush" Color="{StaticResource dark_onErrorContainer}"></SolidColorBrush>
+<SolidColorBrush x:Key="dark_backgroundBrush" Color="{StaticResource dark_background}"></SolidColorBrush>
+<SolidColorBrush x:Key="dark_onBackgroundBrush" Color="{StaticResource dark_onBackground}"></SolidColorBrush>
+<SolidColorBrush x:Key="dark_surfaceBrush" Color="{StaticResource dark_surface}"></SolidColorBrush>
+<SolidColorBrush x:Key="dark_onSurfaceBrush" Color="{StaticResource dark_onSurface}"></SolidColorBrush>
+<SolidColorBrush x:Key="dark_surfaceVariantBrush" Color="{StaticResource dark_surfaceVariant}"></SolidColorBrush>
+<SolidColorBrush x:Key="dark_onSurfaceVariantBrush" Color="{StaticResource dark_onSurfaceVariant}"></SolidColorBrush>
+<SolidColorBrush x:Key="dark_outlineBrush" Color="{StaticResource dark_outline}"></SolidColorBrush>
+<SolidColorBrush x:Key="dark_inverseOnSurfaceBrush" Color="{StaticResource dark_inverseOnSurface}"></SolidColorBrush>
+<SolidColorBrush x:Key="dark_inverseSurfaceBrush" Color="{StaticResource dark_inverseSurface}"></SolidColorBrush>
+<SolidColorBrush x:Key="dark_inversePrimaryBrush" Color="{StaticResource dark_inversePrimary}"></SolidColorBrush>
+<SolidColorBrush x:Key="dark_shadowBrush" Color="{StaticResource dark_shadow}"></SolidColorBrush>
+<SolidColorBrush x:Key="dark_surfaceTintBrush" Color="{StaticResource dark_surfaceTint}"></SolidColorBrush>
+<SolidColorBrush x:Key="dark_outlineVariantBrush" Color="{StaticResource dark_outlineVariant}"></SolidColorBrush>
+<SolidColorBrush x:Key="dark_scrimBrush" Color="{StaticResource dark_scrim}"></SolidColorBrush>
+
+<SolidColorBrush x:Key="light_primaryContainerShade1Brush" Color="{StaticResource light_primaryContainerShade1}"/>
+<SolidColorBrush x:Key="light_primaryContainerShade2Brush" Color="{StaticResource light_primaryContainerShade2}"/>
+<SolidColorBrush x:Key="light_primaryContainerShade3Brush" Color="{StaticResource light_primaryContainerShade3}"/>
+<SolidColorBrush x:Key="light_onPrimaryShade1Brush" Color="{StaticResource light_onPrimaryShade1}"/>
+    
+</ResourceDictionary>

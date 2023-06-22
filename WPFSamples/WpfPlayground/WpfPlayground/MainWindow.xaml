@@ -8,61 +8,84 @@
         xmlns:jmwext="clr-namespace:JMWToolkit.MVVM.Extensions;assembly=JMWToolkit.MVVM"
         xmlns:viewmodels="clr-namespace:WpfPlayground.ViewModels" 
         xmlns:uc="clr-namespace:WpfPlayground.UserControls"
+        xmlns:interfaces="clr-namespace:WpfPlayground.Interfaces"
         xmlns:local="clr-namespace:WpfPlayground"
-        DataContext="{Binding Source={StaticResource Locator}, Path=MainWindowViewModel}"
         d:DataContext="{d:DesignInstance Type=viewmodels:MainWindowViewModel}"
         mc:Ignorable="d"
-        Title="{StaticResource ApplicationTitle}" Height="450" Width="800">
+        Title="{StaticResource ApplicationTitle}"
+        WindowStyle="None"
+        AllowsTransparency="True"
+        Background="Transparent"
+        WindowState="{Binding CurrentWindowState, Mode=TwoWay}"
+        Height="500"
+        Width="1000">
     <Window.Resources>
-        <jmwvc:MultilineTextConverter x:Key="multilineTextConverter"/>
-        <Style x:Key="SeparatorStyle" TargetType="Rectangle">
-            <Setter Property="Fill" Value="#40000000"/>
-            <Setter Property="Height" Value="2"/>
-            <Setter Property="HorizontalAlignment" Value="Stretch"/>
-        </Style>
-        <Style x:Key="SectionHeaderStyle" TargetType="TextBlock">
-            <Setter Property="FontSize" Value="18"/>
-            <Setter Property="FontWeight" Value="SemiBold"/>
-            <Setter Property="Foreground" Value="Navy"/>
-            <Setter Property="Margin" Value="10,0"/>
-        </Style>
+        <ResourceDictionary>
+            <DataTemplate DataType="{x:Type TypeName=viewmodels:MessageBoxDemoAreaViewModel}">
+                <uc:MessageBoxDemoArea/>
+            </DataTemplate>
+            <DataTemplate DataType="{x:Type TypeName=viewmodels:ComboBoxWithAddDemoViewModel}">
+                <uc:ComboBoxWithAddDemoView/>
+            </DataTemplate>
+            <DataTemplate DataType="{x:Type TypeName=viewmodels:AnimationDemoViewModel}">
+                <uc:AnimationDemoView/>
+            </DataTemplate>
+        </ResourceDictionary>
     </Window.Resources>
-    <ScrollViewer VerticalScrollBarVisibility="Auto">
-        <StackPanel>
-            <TextBlock Text="{StaticResource ComboBoxWithAddSection}"
-                       Style="{StaticResource SectionHeaderStyle}"/>
-            <!-- Demo of the ComboBoxWithAdd. It also shows off the multilineConverter and BindableText property for the TextBlock -->
-            <Grid>
+    <!-- Main Window background -->
+    <Border Background="{StaticResource light_primaryBrush}" CornerRadius="20">
+        <Grid>
+            <!-- Main Window Grid -->
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Grid Grid.ColumnSpan="2">
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="300"></ColumnDefinition>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="Auto"/>
+                </Grid.ColumnDefinitions>
+
+                <!-- This is the Title for the App.  -->
+                <TextBlock Style="{StaticResource AppTitleStyle}"
+                       Text="{StaticResource ApplicationTitle}"/>
+
+                <!-- These are the main Window frame buttons for minimize, maximize and close -->
+                <StackPanel Grid.Column="2" Orientation="Horizontal" VerticalAlignment="Center">
+                    <Button Style="{StaticResource WindowButtonStyle}" Content="&#x1F5D5;" Command="{Binding MinimizeCommand}"/>
+                    <Button Content="&#x1F5D6;" Command="{Binding MaximizeCommand}"
+                            Style="{StaticResource WindowButtonStyle}"
+                            Visibility="{Binding CurrentWindowState,
+                        Converter={StaticResource windowStateToVisibilityConverter},
+                        ConverterParameter={x:Static WindowState.Normal}}">
+                    </Button>
+                    <Button Content="&#x1F5D7;" Command="{Binding OverlapCommand}"
+                            Style="{StaticResource WindowButtonStyle}"
+                            Visibility="{Binding CurrentWindowState,
+                        Converter={StaticResource windowStateToVisibilityConverter},
+                        ConverterParameter={x:Static WindowState.Maximized}}">
+                    </Button>
+                    <Button Content="&#x1F5D9;" Command="{Binding CloseCommand}"
+                            Style="{StaticResource WindowButtonStyle}"/>
+                </StackPanel>
+            </Grid>
+            
+            <!-- This is the main part of the window and will have the menu and the subcontrols -->
+            <Grid Grid.Row="1">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
                     <ColumnDefinition Width="*"/>
                 </Grid.ColumnDefinitions>
-                <TextBlock 
-                    Margin="10, 5"
-            jmwext:TextBlockExtensions.BindableInlines=
-                "{Binding Source={StaticResource ComboBoxWithAddDescription}, Converter={StaticResource multilineTextConverter}}"
-            d:Text="Here is some text to take up the space"
-            TextWrapping="Wrap"/>
-                <jmwcl:ComboBoxWithAdd
-                Grid.Column="1"
-                VerticalAlignment="Top"
-                Margin="10,10,10,10"
-                Height="Auto"
-                SelectedItem="{Binding Path=SelectedItem}"
-                ItemsSource="{Binding Path=Items}"
-                AddNewItemCommand="{Binding Path=AddNewItemCommand}"
-                AddNewItemContent="{StaticResource AddNewItem}" Grid.ColumnSpan="2"/>
+                <StackPanel Background="Transparent" Margin="0">
+                    <RadioButton Content="Message Box Demo" IsChecked="True" Style="{StaticResource MainMenuItemStyle}"
+                                 Command="{Binding NavigateToMessageBoxDemo}"/>
+                    <RadioButton Content="ComboBoxWithAdd Demo" Style="{StaticResource MainMenuItemStyle}"
+                                 Command="{Binding NavigateToComboBoxWithAddDemo}"/>
+                    <RadioButton Content="Animation Demo" Style="{StaticResource MainMenuItemStyle}"
+                                 Command="{Binding NavigateToAnimationDemo}"/>
+                </StackPanel>
+                <ContentControl Grid.Column="1" Content="{Binding NavigationService.CurrentView}"></ContentControl>
             </Grid>
-            <Rectangle Style="{StaticResource SeparatorStyle}"></Rectangle>
-            <TextBlock Text="{StaticResource MessageBoxExSection}"
-                       Style="{StaticResource SectionHeaderStyle}"/>
-            <uc:MessageBoxDemoArea 
-            DataContext="{Binding Source={StaticResource Locator}, Path=MessageBoxDemoAreaViewModel}"/>
-            <Rectangle Style="{StaticResource SeparatorStyle}"></Rectangle>
-            <TextBlock Text="{StaticResource AnimationSection}"
-                       Style="{StaticResource SectionHeaderStyle}"/>
-            <uc:AnimationDemo Grid.Row="4"/>
-
-        </StackPanel>
-    </ScrollViewer>
+        </Grid>
+    </Border>
 </Window>

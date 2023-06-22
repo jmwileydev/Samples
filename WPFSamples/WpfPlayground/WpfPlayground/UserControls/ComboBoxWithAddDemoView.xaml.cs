@@ -3,11 +3,11 @@
 namespace WpfPlayground.UserControls;
 
 /// <summary>
-/// Interaction logic for AnimationDemo.xaml
+/// Interaction logic for ComboBoxWithAddDemo.xaml
 /// </summary>
-public partial class AnimationDemo : UserControl
+public partial class ComboBoxWithAddDemoView : UserControl
 {
-    public AnimationDemo()
+    public ComboBoxWithAddDemoView()
     {
         InitializeComponent();
     }

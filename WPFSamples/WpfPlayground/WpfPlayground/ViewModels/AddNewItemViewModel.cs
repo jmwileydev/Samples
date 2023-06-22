@@ -1,6 +1,5 @@
 ﻿using JMWToolkit.MVVM.ViewModels;
 using System;
-using System.Windows;
 using WpfPlayground.Interfaces;
 
 namespace WpfPlayground.ViewModels;
