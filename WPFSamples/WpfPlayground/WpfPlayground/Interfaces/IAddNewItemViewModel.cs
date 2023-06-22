@@ -1,7 +1,6 @@
-﻿namespace WpfPlayground.Interfaces
+﻿namespace WpfPlayground.Interfaces;
+
+public interface IAddNewItemViewModel : IViewModel
 {
-    public interface IAddNewItemViewModel
-    {
-        string NewItem { get; set; }
-    }
+    string NewItem { get; set; }
 }

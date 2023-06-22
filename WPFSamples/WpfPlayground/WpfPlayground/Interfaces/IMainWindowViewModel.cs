@@ -1,10 +1,16 @@
 ﻿using System.Collections.ObjectModel;
+using System.Windows;
+using System.Windows.Input;
 
 namespace WpfPlayground.Interfaces;
 
-public interface IMainWindowViewModel
+public interface IMainWindowViewModel : IViewModel
 {
-    ObservableCollection<string> Items { get; }
+    public ICommand CloseCommand { get; }
+    public ICommand MinimizeCommand { get; }
+    public ICommand MaximizeCommand { get; }
 
-    public string SelectedItem { get; set; }
+    public ICommand OverlapCommand { get; }
+
+    public WindowState CurrentWindowState { get; set; }
 }

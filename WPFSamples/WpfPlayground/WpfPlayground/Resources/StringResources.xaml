@@ -8,7 +8,7 @@
     
     <!-- Section Headers -->
     <system:String x:Key="ComboBoxWithAddSection">ComboBoxWithAdd Demonstration</system:String>
-    <system:String x:Key="MessageBoxExSection">JMWToolkit.MVVM MessageBoxEx Demonstration</system:String>
+    <system:String x:Key="MessageBoxExSection">MessageBoxEx Demonstration</system:String>
     <system:String x:Key="AnimationSection">Animation Playground</system:String>
     
     <!-- Strings for buttons -->
@@ -23,20 +23,14 @@
     <!-- Strings for AddItemDialog -->
     <system:String x:Key="AddNewItemCaption">Add a new item</system:String>
     <system:String x:Key="AddNewItemPrompt">Enter Item:</system:String>
-    
-    <!-- String for description of ComboBoxWithAdd -->
-    <!--<system:String x:Key="ComboBoxWithAddDescription">
-The ComboBoxWithAdd allows the addition of a button at the bottom of the ComboBox dropdown that the user can
-use to add a new item into the list. This ComboBox will actually update the underlying collection.
-    </system:String>-->
-    
+
     <system:String x:Key="ComboBoxWithAddDescription">
 &lt;TextBlock&gt;
-    The ComboBoxWithAdd allows the addition of a button at the bottom of the ComboBox dropdown that the user can
+The ComboBoxWithAdd allows the addition of a button at the bottom of the ComboBox dropdown that the user can
     use to add a new item into the list. This ComboBox will actually update the underlying collection.
-Here is some more text.
-        &lt;LineBreak/&gt;
-    Here is some text, it should be a new paragraph.
+&lt;LineBreak/&gt;
+&lt;LineBreak/&gt;
+When you add an item to the ComboBoxWithAdd it should end up in the list to the right.
 &lt;/TextBlock&gt;
     </system:String>
     
@@ -48,7 +42,7 @@ Here is some more text.
     
     <!-- Message Box Demo Area prompts -->
     <system:String x:Key="ChooseImagePrompt">Choose Image:</system:String>
-    <system:String x:Key="ChooseButtonsPrompt">Choose Button:</system:String>
+    <system:String x:Key="ChooseButtonsPrompt">Choose Buttons:</system:String>
     <system:String x:Key="MessageBoxAreaPrompt">Choose values for the MessageBox and then hit Show</system:String>
     <system:String x:Key="MessageBoxButtonCheckBoxFormat">{0} Button</system:String>
     <system:String x:Key="CaptionPrompt">Caption:</system:String>

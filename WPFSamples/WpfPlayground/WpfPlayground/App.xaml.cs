@@ -1,7 +1,10 @@
-﻿using Microsoft.Extensions.DependencyInjection;
+﻿using JMWToolkit.MVVM.ViewModels;
+using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using System;
 using System.Windows;
 using WpfPlayground.Interfaces;
+using WpfPlayground.Services;
 using WpfPlayground.ViewModels;
 
 namespace WpfPlayground;
@@ -15,13 +18,19 @@ public partial class App : Application
 
     public App()
     {
+        AppContext.SetSwitch("Switch.System.Windows.Controls.Text.UseAdornerForTextboxSelectionRendering", false);
         AppHost = Host.CreateDefaultBuilder().ConfigureServices(
-            (hostContext, services) =>
+            (services) =>
             {
                 services.AddSingleton<MainWindow>();
                 services.AddSingleton<IMainWindowViewModel, MainWindowViewModel>();
                 services.AddSingleton<IAddNewItemViewModel, AddNewItemViewModel>();
                 services.AddSingleton<IMessageBoxDemoAreaViewModel, MessageBoxDemoAreaViewModel>();
+                services.AddSingleton<IAnimationDemoViewModel, AnimationDemoViewModel>();
+                services.AddSingleton<IComboBoxWithAddDemoViewModel, ComboBoxWithAddDemoViewModel>();
+                services.AddSingleton<INavigationService, NavigationService>();
+                services.AddSingleton<Func<Type, IViewModel>>(
+                    serviceProvider => viewModelType => (IViewModel)serviceProvider.GetRequiredService(viewModelType));
             }).Build();
     }
 

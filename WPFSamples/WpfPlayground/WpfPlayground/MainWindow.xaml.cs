@@ -11,8 +11,6 @@ public partial class MainWindow : Window
     public MainWindow(IMainWindowViewModel mainWindowViewModel)
     {
         InitializeComponent();
-        MainWindowViewModel = mainWindowViewModel;
+        DataContext = mainWindowViewModel;
     }
-
-    public IMainWindowViewModel MainWindowViewModel { get; }
 }

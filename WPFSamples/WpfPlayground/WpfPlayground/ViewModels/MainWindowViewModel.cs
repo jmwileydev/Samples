@@ -1,58 +1,71 @@
 ﻿using CommunityToolkit.Mvvm.Input;
 using JMWToolkit.MVVM.ViewModels;
-using Microsoft.Extensions.DependencyInjection;
-using System;
-using System.Collections.ObjectModel;
+using System.Windows;
 using System.Windows.Input;
-using WpfPlayground.Dialogs;
 using WpfPlayground.Interfaces;
 
 namespace WpfPlayground.ViewModels;
 
 public class MainWindowViewModel : ViewModelBase, IMainWindowViewModel
 {
-    private string _selectedItem = String.Empty;
+    private INavigationService _navigationService;
+    private WindowState _currentWindowState = WindowState.Normal;
 
-    public ObservableCollection<string> Items { get; } = new()
+    public MainWindowViewModel(INavigationService navigation)
     {
-        "Item 1",
-        "Item 2",
-        "Item 3",
-        "Item 4"
-    };
+        _navigationService = navigation;
+        CloseCommand = new RelayCommand(() => Application.Current.Shutdown());
+        MinimizeCommand = new RelayCommand(()=> CurrentWindowState = WindowState.Minimized);
+        MaximizeCommand = new RelayCommand(() => CurrentWindowState = WindowState.Maximized);
+        OverlapCommand = new RelayCommand(() => CurrentWindowState = WindowState.Normal);
+        NavigateToAnimationDemo = new RelayCommand(() => { NavigationService.NavigateTo<IAnimationDemoViewModel>(); });
+        NavigateToComboBoxWithAddDemo = new RelayCommand(() => { NavigationService.NavigateTo<IComboBoxWithAddDemoViewModel>(); });
+        NavigateToMessageBoxDemo = new RelayCommand(() => { NavigationService.NavigateTo<IMessageBoxDemoAreaViewModel>(); });
+        NavigationService.NavigateTo<IMessageBoxDemoAreaViewModel>();
+    }
 
-
-    public string SelectedItem
+    public INavigationService NavigationService
     {
-        get => _selectedItem;
+        get => _navigationService;
+
         set
         {
-            if (_selectedItem != value)
+            if (value != _navigationService)
             {
-                _selectedItem = value;
+                _navigationService = value;
                 OnPropertyChanged();
             }
         }
     }
 
-    public MainWindowViewModel()
+    public ICommand CloseCommand { get; }
+
+    public ICommand MinimizeCommand { get; }
+
+    public ICommand MaximizeCommand { get; }
+
+    public ICommand OverlapCommand { get;  }
+
+    public ICommand NavigateToMessageBoxDemo { get; }
+
+    public ICommand NavigateToComboBoxWithAddDemo { get; }
+
+    public ICommand NavigateToAnimationDemo{ get; }
+
+    public WindowState CurrentWindowState
     {
-        AddNewItemCommand = new RelayCommand<Object>((_) =>
+        get
         {
-            var dialogViewModel = App.AppHost.Services.GetRequiredService<IAddNewItemViewModel>();
-            AddItemDialog dialog = new()
-            {
-                DataContext = dialogViewModel
-            };
+            return _currentWindowState;
+        }
 
-            if (dialog.ShowDialog() == true)
+        set
+        {
+            if (value != _currentWindowState)
             {
-                Items.Add(dialogViewModel.NewItem);
-                SelectedItem = dialogViewModel.NewItem;
+                _currentWindowState = value;
+                OnPropertyChanged();
             }
-        });
+        }
     }
-
-    public ICommand AddNewItemCommand { get; private set; }
-
 }
