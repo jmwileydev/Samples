@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "MaterialDesignColorsToXamlBrushes": {
+      "commandName": "Project",
+      "commandLineArgs": " -i C:\\Users\\jmwil\\AppData\\Local\\Temp\\Temp1_material-theme(3).zip\\ui\\theme\\Color.kt -O colors.xaml"
+    }
+  }
+}
