@@ -3,13 +3,10 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:jmwcl="clr-namespace:JMWToolkit.MVVM.Controls;assembly=JMWToolkit.MVVM"
-        xmlns:jmwvc="clr-namespace:JMWToolkit.MVVM.ValueConverters;assembly=JMWToolkit.MVVM"
-        xmlns:jmwext="clr-namespace:JMWToolkit.MVVM.Extensions;assembly=JMWToolkit.MVVM"
-        xmlns:viewmodels="clr-namespace:WpfPlayground.ViewModels" 
+        xmlns:i="http://schemas.microsoft.com/xaml/behaviors"
+        xmlns:viewmodels="clr-namespace:WpfPlayground.ViewModels"
         xmlns:uc="clr-namespace:WpfPlayground.UserControls"
-        xmlns:interfaces="clr-namespace:WpfPlayground.Interfaces"
-        xmlns:local="clr-namespace:WpfPlayground"
+        xmlns:prism="http://www.codeplex.com/prism"
         d:DataContext="{d:DesignInstance Type=viewmodels:MainWindowViewModel}"
         mc:Ignorable="d"
         Title="{StaticResource ApplicationTitle}"
@@ -30,62 +27,107 @@
             <DataTemplate DataType="{x:Type TypeName=viewmodels:AnimationDemoViewModel}">
                 <uc:AnimationDemoView/>
             </DataTemplate>
+            <Style x:Key="_borderStyle" TargetType="{x:Type Border}">
+                <Style.Triggers>
+                    <Trigger Property="{Binding IsMoving}" Value="True">
+                        <Setter Property="BorderBrush" Value="{StaticResource light_outlineBrush}"/>
+                    </Trigger>
+                </Style.Triggers>
+            </Style>
         </ResourceDictionary>
     </Window.Resources>
-    <!-- Main Window background -->
-    <Border Background="{StaticResource light_primaryBrush}" CornerRadius="20">
-        <Grid>
-            <!-- Main Window Grid -->
-            <Grid.RowDefinitions>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition Height="*"/>
-            </Grid.RowDefinitions>
-            <Grid Grid.ColumnSpan="2">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="*"/>
-                    <ColumnDefinition Width="Auto"/>
-                </Grid.ColumnDefinitions>
+    <!-- Main Window background  -->
+    <Border BorderThickness="0" CornerRadius="20">
+        <Border.Style>
+            <Style TargetType="Border">
+                <Setter Property="Background" Value="{StaticResource light_outlineBrush}"/>
+                <Style.Triggers>
+                    <DataTrigger Binding="{Binding IsMoving}" Value="True">
+                        <Setter Property="Background" Value="{StaticResource light_outlineVariantBrush}" />
+                    </DataTrigger>
+                </Style.Triggers>
+            </Style>
+        </Border.Style>
+        <Border x:Name="_borderBackground" Background="{StaticResource light_primaryBrush}" Margin="2" CornerRadius="20">
+            <Grid>
+                <!-- Main Window Grid -->
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <Grid Grid.ColumnSpan="2">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="Auto"/>
+                    </Grid.ColumnDefinitions>
 
-                <!-- This is the Title for the App.  -->
-                <TextBlock Style="{StaticResource AppTitleStyle}"
-                       Text="{StaticResource ApplicationTitle}"/>
+                    <!-- This is going to be an invisible control at the top which if clicked will allow the window to be moved -->
+                    <Border x:Name="_moveControl" Margin="10,0" Background="Transparent" 
+                            BorderThickness="0" HorizontalAlignment="Stretch" VerticalAlignment="Top" 
+                            Height="15">
+                        <i:Interaction.Triggers>
+                            <i:EventTrigger EventName="MouseMove">
+                                <prism:InvokeCommandAction Command="{Binding MouseMoveCommand}"
+                                           CommandParameter="{Binding ElementName=_moveControl}"/>
+                            </i:EventTrigger>
+                            <i:EventTrigger EventName="MouseLeftButtonDown">
+                                <prism:InvokeCommandAction Command="{Binding MouseLeftButtonDownCommand}"
+                                           CommandParameter="{Binding ElementName=_moveControl}"/>
+                            </i:EventTrigger>
+                            <i:EventTrigger EventName="MouseLeftButtonUp">
+                                <prism:InvokeCommandAction Command="{Binding MouseLeftButtonUpCommand}"
+                                           CommandParameter="{Binding ElementName=_moveControl}"/>
+                            </i:EventTrigger>
+                        </i:Interaction.Triggers>
+                    </Border>
 
-                <!-- These are the main Window frame buttons for minimize, maximize and close -->
-                <StackPanel Grid.Column="2" Orientation="Horizontal" VerticalAlignment="Center">
-                    <Button Style="{StaticResource WindowButtonStyle}" Content="&#x1F5D5;" Command="{Binding MinimizeCommand}"/>
-                    <Button Content="&#x1F5D6;" Command="{Binding MaximizeCommand}"
+                    <!-- This is the Title for the App.  -->
+                    <TextBlock Style="{StaticResource AppTitleStyle}"
+                       Text="{StaticResource ApplicationTitle}" Margin="10,10,10,15"/>
+
+                    <!-- These are the main Window frame buttons for minimize, maximize and close -->
+                    <StackPanel Grid.Column="2" Orientation="Horizontal" VerticalAlignment="Top"  Margin="0,5,10,0">
+                        <Button Style="{StaticResource WindowButtonStyle}" Content="&#x1F5D5;" 
+                                Margin="0,0,2,0" Command="{Binding MinimizeCommand}"/>
+                        <Button Content="&#x1F5D6;" Command="{Binding MaximizeCommand}"
+                                Margin="0,0,2,0"
                             Style="{StaticResource WindowButtonStyle}"
                             Visibility="{Binding CurrentWindowState,
                         Converter={StaticResource windowStateToVisibilityConverter},
                         ConverterParameter={x:Static WindowState.Normal}}">
-                    </Button>
-                    <Button Content="&#x1F5D7;" Command="{Binding OverlapCommand}"
+                        </Button>
+                        <Button Content="&#x1F5D7;" Command="{Binding OverlapCommand}"
+                                Margin="0,0,2,0"
                             Style="{StaticResource WindowButtonStyle}"
                             Visibility="{Binding CurrentWindowState,
                         Converter={StaticResource windowStateToVisibilityConverter},
                         ConverterParameter={x:Static WindowState.Maximized}}">
-                    </Button>
-                    <Button Content="&#x1F5D9;" Command="{Binding CloseCommand}"
+                        </Button>
+                        <Button Content="&#x1F5D9;" Command="{Binding CloseCommand}"
                             Style="{StaticResource WindowButtonStyle}"/>
-                </StackPanel>
-            </Grid>
-            
-            <!-- This is the main part of the window and will have the menu and the subcontrols -->
-            <Grid Grid.Row="1">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="Auto"/>
-                    <ColumnDefinition Width="*"/>
-                </Grid.ColumnDefinitions>
-                <StackPanel Background="Transparent" Margin="0">
-                    <RadioButton Content="Message Box Demo" IsChecked="True" Style="{StaticResource MainMenuItemStyle}"
+                    </StackPanel>
+                </Grid>
+
+                <!-- This is the main part of the window and will have the menu and the subcontrols -->
+                <Grid Grid.Row="1">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <StackPanel Background="Transparent" Margin="10,0,0,0">
+                        <RadioButton Content="Message Box Demo" IsChecked="True" Style="{StaticResource MainMenuItemStyle}"
                                  Command="{Binding NavigateToMessageBoxDemo}"/>
-                    <RadioButton Content="ComboBoxWithAdd Demo" Style="{StaticResource MainMenuItemStyle}"
+                        <RadioButton Content="ComboBoxWithAdd Demo" Style="{StaticResource MainMenuItemStyle}"
                                  Command="{Binding NavigateToComboBoxWithAddDemo}"/>
-                    <RadioButton Content="Animation Demo" Style="{StaticResource MainMenuItemStyle}"
+                        <RadioButton Content="Animation Demo" Style="{StaticResource MainMenuItemStyle}"
                                  Command="{Binding NavigateToAnimationDemo}"/>
-                </StackPanel>
-                <ContentControl Grid.Column="1" Content="{Binding NavigationService.CurrentView}"></ContentControl>
+                    </StackPanel>
+                    <TextBlock d:Text="Mouse Position" Grid.Row="1" VerticalAlignment="Bottom" Margin="20"
+                           Style="{StaticResource SectionTextPromptStyle}"
+                           Text="{Binding MousePosition}"/>
+                    <ContentControl Grid.Column="1" Content="{Binding NavigationService.CurrentView}"></ContentControl>
+                </Grid>
             </Grid>
-        </Grid>
+        </Border>
     </Border>
 </Window>
