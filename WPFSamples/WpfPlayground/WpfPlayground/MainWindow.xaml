@@ -123,7 +123,7 @@
                                  Command="{Binding NavigateToAnimationDemo}"/>
                     </StackPanel>
                     <TextBlock d:Text="Mouse Position" Grid.Row="1" VerticalAlignment="Bottom" Margin="20"
-                           Style="{StaticResource SectionTextPromptStyle}"
+                           Style="{StaticResource SectionTextBlockStyle}"
                            Text="{Binding MousePosition}"/>
                     <ContentControl Grid.Column="1" Content="{Binding NavigationService.CurrentView}"></ContentControl>
                 </Grid>

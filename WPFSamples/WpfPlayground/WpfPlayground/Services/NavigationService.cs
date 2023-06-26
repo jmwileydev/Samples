@@ -4,6 +4,9 @@ using WpfPlayground.Interfaces;
 
 namespace WpfPlayground.Services;
 
+/// <summary>
+/// NavigationService used to switch views based on the ViewModel change.
+/// </summary>
 public class NavigationService : ObservableObject, INavigationService
 {
     private Func<Type, IViewModel> _viewModelFactory;

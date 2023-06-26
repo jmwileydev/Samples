@@ -96,49 +96,6 @@
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="Button">
-                        <!--<Grid x:Name="_contentGrid"
-                              Width="30"
-                              Height="30">
-                            <Ellipse x:Name="_ellipse" 
-                                 Fill="Transparent"
-                                 Stroke="Transparent" StrokeThickness="1"
-                                 Width="25"
-                                 Height="25">
-                            </Ellipse>-->
-                            <!--<Image Width="24" Height="24" x:Name="_image">
-                                <Image.Source>
-                                    <DrawingImage>
-                                        <DrawingImage.Drawing>
-                                        <GeometryDrawing Brush="{Binding RelativeSource={RelativeSource AncestorType={x:Type Button}}, Path=Foreground}" 
-                             Geometry="M12,20C7.59,20 4,16.41 4,12C4,7.59 7.59,4 12,4C16.41,4 20,7.59 20,12C20,16.41 16.41,20 12,20M12,2C6.47,2 2,6.47 2,12C2,17.53 6.47,22 12,22C17.53,22 22,17.53 22,12C22,6.47 17.53,2 12,2M14.59,8L12,10.59L9.41,8L8,9.41L10.59,12L8,14.59L9.41,16L12,13.41L14.59,16L16,14.59L13.41,12L16,9.41L14.59,8Z" />
-                                        </DrawingImage.Drawing>
-                                    </DrawingImage>
-                                </Image.Source>
-                            </Image>-->
-                    <!--Geometry="M12,20
-                                                     C7.59,20 4,16.41 4,12
-                                                     C4,7.59 7.59,4 12,4
-                                                     C16.41,4 20,7.59 20,12
-                                                     C20,16.41 16.41,20 12,20
-                                                     M12,2
-                                                     C6.47,2 2,6.47 2,12
-                                                     C2,17.53 6.47,22 12,22
-                                                     C17.53,22 22,17.53 22,12
-                                                     C22,6.47 17.53,2 12,2
-                                                     M14.59,8
-                                                     L12,10.59
-                                                     L9.41,8
-                                                     L8,9.41
-                                                     L10.59,12
-                                                     L8,14.59
-                                                     L9.41,16
-                                                     L12,13.41
-                                                     L14.59,16
-                                                     L16,14.59
-                                                     L13.41,12
-                                                     L16,9.41
-                                                     L14.59,8
-                                                     Z" />-->
                     <Image Stretch="None" HorizontalAlignment="Left">
                         <Image.Source>
                             <DrawingImage>

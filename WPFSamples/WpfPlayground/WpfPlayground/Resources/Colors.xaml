@@ -64,10 +64,12 @@
 <Color x:Key="dark_outlineVariant">#FF46464F</Color>
 <Color x:Key="dark_scrim">#FF000000</Color>
 
-<Color x:Key="light_primaryContainerShade1">#D8E0E0FF</Color>
-<Color x:Key="light_primaryContainerShade2">#B1E0E0FF</Color>
-<Color x:Key="light_primaryContainerShade3">#8AE0E0FF</Color>
-<Color x:Key="light_onPrimaryShade1">#D8FFFFFF</Color>
+<Color x:Key="light_primaryContainerShade1">#C0C0DF</Color>
+<Color x:Key="light_primaryContainerShade2">#A0A0BF</Color>
+<Color x:Key="light_primaryContainerShade3">#80809F</Color>
+<Color x:Key="light_onPrimaryShade1">#C0C0C0</Color>
+<Color x:Key="light_onPrimaryShade2">#A0A0A0</Color>
+<Color x:Key="light_onPrimaryShade3">#808080</Color>
 
     <!-- Brushes -->
 <SolidColorBrush x:Key="light_primaryBrush" Color="{StaticResource light_primary}"></SolidColorBrush>
@@ -134,6 +136,8 @@
 <SolidColorBrush x:Key="light_primaryContainerShade1Brush" Color="{StaticResource light_primaryContainerShade1}"/>
 <SolidColorBrush x:Key="light_primaryContainerShade2Brush" Color="{StaticResource light_primaryContainerShade2}"/>
 <SolidColorBrush x:Key="light_primaryContainerShade3Brush" Color="{StaticResource light_primaryContainerShade3}"/>
+  
 <SolidColorBrush x:Key="light_onPrimaryShade1Brush" Color="{StaticResource light_onPrimaryShade1}"/>
-    
+<SolidColorBrush x:Key="light_onPrimaryShade2Brush" Color="{StaticResource light_onPrimaryShade2}"/>
+<SolidColorBrush x:Key="light_onPrimaryShade3Brush" Color="{StaticResource light_onPrimaryShade3}"/>
 </ResourceDictionary>
