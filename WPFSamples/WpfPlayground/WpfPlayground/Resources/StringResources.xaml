@@ -90,4 +90,25 @@ longer and will hopefully wrap properly.&lt;LineBreak/&gt;
 And finally to a third line.
     &lt;/TextBlock&gt;
     </system:String>
+    
+    <system:String x:Key="BounceEaseDisplayName">Bounce Ease</system:String>
+    <system:String x:Key="CubicEaseDisplayName">Cubic Ease</system:String>
+    <system:String x:Key="QuarticEaseDisplayName">Quartic Ease</system:String>
+    
+    <system:String x:Key="EaseInDisplayName">Ease In</system:String>
+    <system:String x:Key="EaseOutDisplayName">Ease Out</system:String>
+    <system:String x:Key="EaseInOutDisplayName">Ease In/Out</system:String>
+    
+    <!-- Strings for the Animation Playground -->
+    <system:String x:Key="ScaleLabel">Scale</system:String>
+    <system:String x:Key="XCoordinateLabel">X</system:String>
+    <system:String x:Key="YCoordinateLabel">Y</system:String>
+    <system:String x:Key="RotationLabel">Rotation</system:String>
+    <system:String x:Key="AngleLabel">Angle</system:String>
+    <system:String x:Key="DoubleAnimationSubHeader">Storyboard With Double Animation</system:String>
+    <system:String x:Key="DoubleAnimationInstructions">Choose values for Ease Function parameters and then click on circle</system:String>
+    <system:String x:Key="EasingFunctionLabel">Easing Function</system:String>
+    <system:String x:Key="EasingModeLabel">Easing Mode</system:String>
+    <system:String x:Key="BouncesLabel">Number of bouncces</system:String>
+    <system:String x:Key="BouncinessLabel">Bounciness</system:String>
 </ResourceDictionary>

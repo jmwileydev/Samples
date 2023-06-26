@@ -4,9 +4,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:jmwcl="clr-namespace:JMWToolkit.MVVM.Controls;assembly=JMWToolkit.MVVM"
-             xmlns:jmwvc="clr-namespace:JMWToolkit.MVVM.ValueConverters;assembly=JMWToolkit.MVVM"
              xmlns:jmwext="clr-namespace:JMWToolkit.MVVM.Extensions;assembly=JMWToolkit.MVVM"
-             xmlns:local="clr-namespace:WpfPlayground.UserControls"
              mc:Ignorable="d" 
              d:Background="Navy"
              d:DesignHeight="450" d:DesignWidth="800">
@@ -28,7 +26,7 @@
             <TextBlock 
                 Grid.Row="1" Grid.RowSpan="2"
                 Margin="10, 5"
-                Style="{StaticResource SectionTextPromptStyle}"
+                Style="{StaticResource SectionTextBlockStyle}"
                 jmwext:TextBlockExtensions.BindableInlines=
                         "{Binding Source={StaticResource ComboBoxWithAddDescription},
                             Converter={StaticResource multilineTextConverter}}"
